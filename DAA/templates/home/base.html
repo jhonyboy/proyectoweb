@@ -1,0 +1,134 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+<link href="{% static 'bootstrap/css/fondo.css' %}"rel="stylesheet" media="screen">
+<link href="{% static 'bootstrap/css/style.css' %}"rel="stylesheet" media="screen">
+<script src="/static/bootstrap/js/jquery-1.12.2.min.js"></script>
+<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+<script src="/static/bootstrap/js/jquery.js"></script>
+<link rel="stylesheet" href="/static/pure-release-0.6.0/pure-min.css">
+
+
+</head>
+<body>
+{% if user.is_authenticated %}
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    
+    <ul class="nav navbar-nav">
+      <li class="active"><a class="glyphicon glyphicon-home" href="{% url 'login' %}"> Principal</a></li>
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Comunidad <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="{% url 'community_list' %}">Usuarios</a></li>
+            <li><a href="{% url 'friend_list' %}">Mis Amigos</a></li>
+          </ul>
+        </li>  
+      </ul>
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-th-list"></span> Publicaciones <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="{% url 'report_publication' %}">Todas tus Ideas</a></li>
+            <li><a href="{% url 'register_publication' %}">Publicar Idea</a></li>
+          </ul>
+        </li>  
+      </ul>
+    </ul>
+
+<ul class="nav navbar-nav">
+        <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-th-list"></span> Directorio <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="http://127.0.0.1:8000/static/media/Directorio.html">Telefonos</a></li>
+          </ul>
+        </li>  
+      </ul>
+    </ul>
+
+<ul class="nav navbar-nav">
+        <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-th-list"></span> Talleres <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="http://127.0.0.1:8000/static/media/juegos/incendio.html">Prevencion de Incendios</a></li>
+            <li><a href="http://127.0.0.1:8000/static/media/juegos/botiquin.html">Botiquin de Primeros Auxilios</a></li>
+            <li><a href="http://127.0.0.1:8000/static/media/juegos/temblor.html">Sismos</a></li>
+           
+          </ul>
+        </li>  
+      </ul>
+    </ul>
+
+
+    <ul class="nav navbar-nav navbar-center">
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown">{{user.username}} <img src="{{ get_image_profile }}" width="30px" height="30px"  class="img-circle" ><span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="{% url 'perfil_view' %}">Configurar</a></li>
+          <li><a href="{% url 'logout' %}">Salir</a></li>
+        </ul>
+    </li>  
+    </ul>
+  </div>
+</nav>
+
+{% else %}
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a class="glyphicon glyphicon-home" href="{% url 'login' %}"> Principal</a></li>
+      <li><a href="{% url 'signup' %}" class="glyphicon glyphicon-pencil"> Registrar</a></li>
+    </ul>
+  </div>
+</nav>
+{% endif %}
+<div class="bg">
+  <div class="jumbotron">
+    <div class="container">
+     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+	  <!-- Indicators -->
+	  <ol class="carousel-indicators">
+	    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+	    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+	    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+	  </ol>
+ 
+		  <!-- Wrapper for slides -->
+		  <div class="carousel-inner">
+		    <div class="item active">
+		      <img src="http://127.0.0.1:8000/static/media/bienvenido.jpg" alt="...">
+		      <div class="carousel-caption">
+		      </div>
+		    </div>
+		    <div class="item">
+		      <img src="http://127.0.0.1:8000/static/media/doc.jpg" alt="...">
+		      <div class="carousel-caption">
+		      </div>
+		    </div>
+		    <div class="item">
+		      <img src="http://127.0.0.1:8000/static/media/flama.jpg" alt="...">
+		      <div class="carousel-caption">
+		      </div>
+		    </div>
+  </div>
+ 
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+</div> <!-- Carousel -->           
+                
+      </div>
+   </div>
+</div>
+</body>
+</html>
+{% block content %}
+{% endblock %}

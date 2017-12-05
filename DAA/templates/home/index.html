@@ -1,0 +1,47 @@
+{% extends 'home/base.html' %}
+{% block title %}Index{% endblock %}
+{% block content %}
+{% if user.is_authenticated %}
+<center>
+ <div class="div-title">
+  <h1>Bienvenido {{user.username}}</h1>
+  <img src="http://127.0.0.1:8000/static/media/welcome.png">
+</center>
+ </div>
+
+{% else %}
+<center>
+        <img src="http://127.0.0.1:8000/static/media/timmyhola.png">
+       
+<div class="div-title">
+  <h1>Iniciar</h1>
+ </div>
+</center>
+ <br></br>
+ <div class="div-align">
+  <form method ='POST' class = "form-horizontal" role = "form">
+    {% csrf_token %}
+      <div class = "form-group">
+          <label for = "fullname"  align="center" class = "col-sm-2 control-label">Usuario</label>
+          <div class = "col-sm-3">
+            <input type = "text" name="username" class = "form-control" autocomplete="off">
+          </div>
+       </div>
+      <div class = "form-group">
+          <label for ="password" class = "col-sm-2 control-label">Contraseña</label>
+          <div class = "col-sm-3">
+            <input type = "password" name="password" class = "form-control">
+          </div>
+        </div>
+        
+   
+      <div class = "form-group">
+          <div class = "col-sm-offset-2 col-sm-10">
+            <button type="submit" type="button" class = "btn btn-default">iniciar</button>
+            <button type="reset" type="button" class = "btn btn-default">cancelar</button>
+        </div>
+      </div>
+</form>
+</div>
+{% endif %}
+{% endblock %}

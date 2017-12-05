@@ -1,0 +1,31 @@
+{% extends 'home/base.html' %}
+{% block title %}Extra{% endblock %}
+{% block content %}
+<div class="contenido">
+	<h2>{{ object.title }}</h2>
+	<h4>{{ object.body}}</h4>
+	<h5>By: {{ object.user }}</h5>
+	<h5> {{object.score}} Les encanta {{object.unscored}} No les encanta</h5>
+	<a  href="/score_publication/{{object.pk}}/" role="button" class="btn btn-default">
+		<span class="glyphicon glyphicon-heart"></span> Me encanta</a>
+	<a  href="/unscored_publication/{{object.pk}}/" role="button" class="btn btn-default">
+		<span class="glyphicon glyphicon-thumbs-down"></span> No me encanta</a>
+	<br></br>
+	<h4> Comentarios</h4>
+
+	{% for comment in comment_list%}
+	<h5>{{comment.user}}: {{comment.comment}} <a href="/score_comment/{{object.pk}}/{{comment.pk}}/" role="button" class="btn btn-default">{{comment.score}} <span class="glyphicon glyphicon-thumbs-up"></span></a></h5>
+	{% endfor %}
+
+	<form method ='POST' class="pure-form pure-form-aligned">
+		{% csrf_token %}
+		<p><textarea cols="40" id="id_comment" name="comment" rows="2">
+		</textarea></p>
+		<input id="id_user" maxlength="50" name="user" type="hidden" value="{{ user.username }}" />
+		<input id="id_publication" maxlength="50" name="publication" type="hidden" value="{{object.id}}"/>
+
+  		<button type="submit" class="pure-button pure-button-active" >Guardar <span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>      
+    	<button type="reset" class="pure-button pure-button-active" >Cancelar <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+  </form>
+</div>
+{% endblock content%}

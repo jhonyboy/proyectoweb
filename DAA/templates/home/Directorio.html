@@ -1,0 +1,66 @@
+{% extends 'home/base.html' %}
+{% block title %}Extra{% endblock %}
+{% block content %}
+{% for item in object_list%}
+
+<html>
+	<head>
+		<title>DIRECTORIO</title>
+	</head>
+	<body>	
+	<h4>Directorio de emergencias</h4>
+	<table border = "1" cellpadding = "10">
+	<tr>
+ 	<th>Dependencia</th>
+ 	<th>Telefono</th>
+	</tr>
+	<tr>
+ 	<td><img src ="/home/gabi/Escritorio/Imagenes proy/policia_municipal_tj.jpg" width ="55px" height = "55px"/>Policia</td>
+ 	<td>911</td>
+	</tr>
+	<tr>
+        <td><img src ="/home/gabi/Escritorio/Imagenes proy/logobomeros.jpg" width ="60px" height = "60px"/>Bomberos</td>
+        <td>911</td>
+        </tr>
+	<tr>
+        <td><img src ="/home/gabi/Escritorio/Imagenes proy/cruz_roja.png" width ="70px" height = "70px"/>Cruz roja</td>
+        <td>911</td>
+        </tr>
+	<tr>
+        <td><img src ="/home/gabi/Escritorio/Imagenes proy/salud.jpg" width ="60px" height = "60px"/>Hospital general de Tijuana</td>
+        <td>(664)684-0922</td>
+        </tr>
+	<tr>
+        <td><img src ="/home/gabi/Escritorio/Imagenes proy/logo-IMSS-.jpg" width ="60px" height = "60px"/>IMSS</td>
+        <td>(664) 629-6345 al 47</td>
+        </tr>
+	<tr>
+        <td><img src ="/home/gabi/Escritorio/Imagenes proy/ISSSTE.png" width ="70px" height = "60px"/>ISSSTE</td>
+        <td>(664) 681-4741 al 44</td>
+        </tr>
+	<tr>
+        <td><img src ="/home/gabi/Escritorio/Imagenes proy/078.jpg" width ="60px" height = "50px"/>Linea de asistencia al turista</td>
+        <td>078</td>
+        </tr>
+	<tr>
+        <td><img src ="/home/gabi/Escritorio/Imagenes proy/089.jpg" alt = "Denuncia ciudadana" width ="60px" height = "50px"/>Denuncia ciudadana</td>
+        <td>089</td>
+        </tr>
+	<tr>
+        <td><img src ="/home/gabi/Escritorio/Imagenes proy/proteccioncivil.jpg" width ="60px" height = "60px"/>Proteccion civil</td>
+        <td>(664) 607-8945 y (664)683-9112</td>
+        </tr>
+	<tr>
+        <td><img src ="/home/gabi/Escritorio/Imagenes proy/pgr.jpg" alt = "Denuncia ciudadana" width ="80px" height = "60px"/>PGR</td>
+        <td>(664) 633-6800</td>
+        </tr>
+	<tr>
+        <td>Incendios forestales</td>
+        <td>01 800 026 5980</td>
+        </tr>
+
+		</table>
+	</body>
+</html>
+{% endfor %}
+{% endblock %}
